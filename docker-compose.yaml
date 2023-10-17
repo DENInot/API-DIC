@@ -1,0 +1,15 @@
+version: "3.7" 
+services:
+  web:
+    build: .
+    ports:
+      - "5000"
+    volumes:
+      - .:/code
+      - logvolume02:/var/log
+    links:
+      - redis
+  redis:
+    image: redis
+volumes:
+  logvolume02: {}
